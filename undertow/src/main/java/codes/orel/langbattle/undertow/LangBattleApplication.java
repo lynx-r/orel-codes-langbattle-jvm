@@ -16,14 +16,14 @@ import static java.lang.String.format;
 
 public class LangBattleApplication {
 
-  public static final String ERROR_READ_JSON = "Error while reading json";
-  public static final String ERROR_WRITE_JSON = "Error while writing json";
+  private static final String ERROR_READ_JSON = "Error while reading json";
+  private static final String ERROR_WRITE_JSON = "Error while writing json";
   private static final ObjectMapper objectMapper = new ObjectMapper();
   private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss Z");
 
   public static void main(final String[] args) {
     Undertow server = Undertow.builder()
-        .addHttpListener(8080, "localhost")
+        .addHttpListener(8080, "0.0.0.0")
         .setHandler(exchange ->
             exchange.getRequestReceiver().receiveFullString((exchangeResp, message) -> {
               var typeRef = new TypeReference<Map<String, Object>>() {
@@ -55,5 +55,6 @@ public class LangBattleApplication {
               exchangeResp.getResponseSender().send(str);
             })).build();
     server.start();
+    System.out.println("Undertow started on http://0.0.0.0:8080");
   }
 }
