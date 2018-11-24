@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'codes.orel'
 version = '1.0'
-sourceCompatibility = 11
+sourceCompatibility = 10
 
 repositories {
     mavenCentral()

@@ -2,3 +2,6 @@ rootProject.name = 'langbattle-jvm'
 
 include 'spring'
 include 'spark'
+include 'jersey'
+include 'undertow'
+

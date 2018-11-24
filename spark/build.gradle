@@ -10,10 +10,10 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-group 'com.workingbit'
+group 'codes.orel'
 version '1.0'
 
-sourceCompatibility = 11
+sourceCompatibility = 10
 
 repositories {
     mavenCentral()
@@ -22,7 +22,7 @@ repositories {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.workingbit.langbattle.LangBattleApplication'
+                'Main-Class': 'codes.orel.langbattle.spark.LangBattleApplication'
         )
     }
 }
