@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'codes.orel'
+version = '1.0'
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    launchScript()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('commons-codec:commons-codec:1.11')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('io.projectreactor:reactor-test')
+}
